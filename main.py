@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # Define your own replacements here
 def reg_match(word):
     return word
