@@ -1,11 +1,15 @@
 #!/usr/bin/env python
+import os.path
 
-# Define your own replacements here
-def reg_match(word):
-    return word
+csv_file = "transaction.csv"
+
+if not os.path.isfile(csv_file):
+    # I would fix this if it mattered more to me.    
+    print("You must have a csv file exactly called 'transaction.csv'.")
+    quit()
 
 # Open Exported Transaction Document
-with open("transaction.csv", "r") as ins:
+with open(csv_file, "r") as ins:
     array = []
     for line in ins:
         array.append(line)
@@ -17,7 +21,6 @@ for line in array:
     cols = line.split(",")
     translated_line += cols[0]
     translated_line += ";;;;"
-    translated_line += reg_match(cols[1])
     translated_line += ";"
     if(cols[2]): # Expenditure
         translated_line += "-" + cols[2]
