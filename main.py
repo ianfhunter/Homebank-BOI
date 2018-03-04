@@ -21,6 +21,7 @@ for line in array:
     cols = line.split(",")
     translated_line += cols[0]
     translated_line += ";;;;"
+    translated_line += cols[1]
     translated_line += ";"
     if(cols[2]): # Expenditure
         translated_line += "-" + cols[2]
