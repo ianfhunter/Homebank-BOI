@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os.path
+from datetime import datetime
 
 csv_file = "transaction.csv"
 
@@ -19,6 +20,10 @@ translated_array = []
 for line in array:
     translated_line = ""
     cols = line.split(",")
+    trans_date = cols[0]
+    datetime_object = datetime.strptime(trans_date, '%d/%m/%Y')
+    cols[0] = datetime_object.strftime("%m/%d/%Y")
+
     translated_line += cols[0]
     translated_line += ";;;;"
     translated_line += cols[1]
